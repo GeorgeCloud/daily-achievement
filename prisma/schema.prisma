@@ -1,0 +1,29 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://kiirb:@localhost:5432/daily-achievement"
+}
+
+model User {
+  id          Int      @id @default(autoincrement())
+  phoneNumber Int      @unique
+  password    String
+  tasks       Task[]
+  createdOn   DateTime @default(now())
+}
+
+model Task {
+  id        Int      @id @default(autoincrement())
+  name      String
+  desc      String
+  color     String
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int
+  createdOn DateTime @default(now())
+}
