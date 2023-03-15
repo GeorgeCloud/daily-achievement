@@ -12,7 +12,7 @@ datasource db {
 
 model User {
   id          Int      @id @default(autoincrement())
-  phoneNumber Int      @unique
+  phoneNumber String   @unique
   password    String
   tasks       Task[]
   createdOn   DateTime @default(now())

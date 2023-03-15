@@ -1,7 +1,7 @@
 -- CreateTable
 CREATE TABLE "User" (
     "id" SERIAL NOT NULL,
-    "phoneNumber" INTEGER NOT NULL,
+    "phoneNumber" TEXT NOT NULL,
     "password" TEXT NOT NULL,
     "createdOn" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
