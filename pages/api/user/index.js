@@ -7,7 +7,6 @@ export default async function handler(req, res) {
         res.status(200).json(allUsers);
     } else if (req.method == 'POST') {
         try {
-            console.log(req.body.phoneNumber)
             const newUser = await prisma.user.create({
                 data: {
                     phoneNumber: req.body.phoneNumber,
