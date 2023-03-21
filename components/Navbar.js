@@ -21,7 +21,7 @@ export default function Navbar(){
           <Link href="/">
             <Image
               src="/images/icon-2.png"
-              class="opacity-70 ml-10"
+              class="opacity-70 mr-7 md:mr-0 md:ml-10"
               height="0"
               width="45"
               alt="placeholder"
@@ -38,7 +38,7 @@ export default function Navbar(){
           <Link href="/">
             <Image
               src="/images/log-out.png"
-              class="opacity-70 mr-10"
+              class="opacity-70 ml-7 md:ml-0 md:mr-10"
               height="0"
               width="45"
               alt="placeholder"
