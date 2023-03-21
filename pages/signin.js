@@ -35,7 +35,7 @@ export default function Home() {
 
               <input class="px-5 md:px-10 rounded-2xl bg-slate-100/70 text-neutral-700 shadow-sm shadow-slate-300/90 py-2 md:py-5 hover:bg-slate-200/50 mt-10 mb-4" placeholder='Phone number' type="text"></input>
               <input class="px-5 md:px-10 rounded-2xl bg-slate-100/70 text-neutral-700 shadow-sm shadow-slate-300/90 py-2 md:py-5 hover:bg-slate-200/50" placeholder='Password' type="text"></input>
-              <button id="register-btn" class="rounded-2xl text-base md:text-lg font-normal md:font-light bg-red-400/90 w-fit md:w-fit mt-10 text-white hover:font-semibold tracking-widest">Register</button>
+              <button id="register-btn" class="rounded-2xl text-base md:text-lg font-normal md:font-light bg-indigo-500/90 w-fit md:w-fit mt-10 text-white hover:font-semibold tracking-widest">Register</button>
               <p class="text-center md:text-right w-full md:mr-16 font-thin text-neutral-700 py-11 md:py-5 tracking-wider hover:font-extralight">Don't have an account</p>
 
               <p id="line-decoration" class="">or continue with</p>
