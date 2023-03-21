@@ -11,7 +11,7 @@ CREATE TABLE "User" (
 -- CreateTable
 CREATE TABLE "Task" (
     "id" SERIAL NOT NULL,
-    "name" TEXT NOT NULL,
+    "title" TEXT NOT NULL,
     "desc" TEXT NOT NULL,
     "color" TEXT NOT NULL,
     "userId" INTEGER NOT NULL,

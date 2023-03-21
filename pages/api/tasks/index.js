@@ -6,12 +6,14 @@ export default async function handler(req, res) {
 
         res.status(200).json(tasks)
     } else if (req.method == 'POST') {
+        const userId = 1; // Grab from session
+
         const newTask = await prisma.task.create({
             data: {
-                name: req.body.name,
-                desc: req.body.desc,
-                color: req.body.color,
-                userId: parseInt(req.body.userId),
+                userId: userId,
+                title : req.body.title,
+                color : req.body.color,
+                desc  : req.body.description,
             }
         })
 
