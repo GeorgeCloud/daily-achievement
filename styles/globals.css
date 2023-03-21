@@ -9,3 +9,44 @@ body, html {
 ::-webkit-scrollbar {
     width: 1px;
 }
+
+#line-decoration {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+}
+
+@media only screen and (max-width: 768px) {
+    #line-decoration {
+        width: 75%;
+    }
+  }
+
+#line-decoration:before, #line-decoration:after {
+    content: "";
+    flex: 1 1;
+    border-bottom: 2px solid;
+    margin: auto;
+}
+
+#line-decoration:before {
+    margin-right: 13px;
+    border-image: linear-gradient(to left, rgb(178, 176, 176), white) 1;
+}
+
+#line-decoration:after {
+    margin-left: 13px;
+    border-image: linear-gradient(to right, rgb(178, 176, 176), white) 1;
+}
+
+#register-btn {
+    padding: 20px 40px;
+    width: 257px;
+}
+
+@media only screen and (max-width: 768px) {
+    #register-btn {
+        width: 217px;
+        padding: 10px 20px;
+    }
+  }
