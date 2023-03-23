@@ -2,6 +2,8 @@ import Image from 'next/image'
 import Head from 'next/head'
 import Navbar from '/components/Navbar'
 import TaskForm from '/components/TaskForm'
+import ProfileIcon from 'components/ProfileIcon'
+
 
 export default function newTask() {
   return (
@@ -13,11 +15,14 @@ export default function newTask() {
 
       <main class="md:flex md:flex-col md:items-center h-screen">
         <div class="px-4 md:w-3/5 h-full">
-          <div class="border-b-2">
-            <h1 class="text-3xl font-bold pb-2 text-indigo-500">Create a task</h1>
-          </div>
-          
-          <div class="ml-4 p-2 h-3/4">
+          <div class="flex pt-2 md:pt-0 md:my-2 justify-end items-center relative">
+              <h1 class="font-bold text-2xl text-indigo-900	absolute left-0">
+                Create a task
+              </h1>
+              <ProfileIcon />
+            </div>
+
+          <div class="h-3/4 overflow-auto">
             <TaskForm />
           </div>
 

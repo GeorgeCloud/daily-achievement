@@ -16,7 +16,7 @@ export default function Navbar(){
           </Link>
         </div>
       </div>
-      <div class="flex h-20 z-0 absolute top-10 w-full ">
+      <div class="flex h-20 z-0 absolute top-10 w-full">
         <div class="border-t-2 border-t-sky-700/30 w-screen flex items-center justify-center">
           <Link href="/">
             <Image

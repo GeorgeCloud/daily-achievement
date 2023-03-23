@@ -50,88 +50,122 @@ export default function TaskForm(){
 
     return (
       <form onSubmit={handleTaskForm}>
+        <p class="font-meidum text-neutral-700 text-lg">What&apos;s your title?</p>
         <div class="task-title mt-2 mb-6">
           <input
             type="text"
             name="title"
-            class="border-voliet-400 border-b-2 text-black h-10 w-96 text-lg font-bold outline-0"
+            class="rounded-lg pl-3 ml-2 border-2 text-black py-2 md:py-3 w-80 md:w-96 text-normal font-light outline-0"
             placeholder="Add Title"
           />
         </div>
 
-        <div class="task-inputs h-full p-2 pb-40">
-          <div class="time mt-1">
-            <input type="time" id="time" name="time" class="text-lg font-medium outline-none" required/>
-          </div>
+        <div class="mt-2">
+          <p class="font-meidum text-neutral-700 text-lg">What is your task type?</p>
+          <select name="type" id="task-type" class="ml-2 mt-2 md:mt-4" multiple required>
+            <option value="1" class="for-task-type task-1">Work</option>
+            <option value="2" class="for-task-type task-2">Study</option>
+            <option value="3" class="for-task-type task-3">Event</option>
+            <option value="4" class="for-task-type task-4">Gym</option>
+            <option value="5" class="for-task-type task-5">Other</option>
+          </select>
+        </div>
 
-          <div class="days-and-color mb-2">
-            <fieldset id="dates" class="mt-2" required>
-
-
-              <input type="radio" value="0" />
-              <label> Thr </label>
-
-              <input type="radio" value="1" />
-              <label> Fri </label>
-
-              <input type="radio" value="2" />
-              <label> Sat </label>
-
-              <input type="radio" value="3"/>
-              <label> Sun </label>
-
-              <input type="radio" value="4" />
-              <label> Mon </label>
-
-              <input type="radio" value="5" />
-              <label> Tue </label>
-
-              <input type="radio" value="6" />
-              <label> Wed </label>
-            </fieldset>
-
-            <div class="mt-2">
-              <label>Type &nbsp;</label>
-              <select name="type" class="border outline-none" required>
-                <option>--</option>
-                <option>Birthday</option>
-                <option>Event</option>
-                <option>Gym</option>
-                <option>Party</option>
-                <option>School</option>
-                <option>Trip</option>
-                <option>Workout</option>
-                <option>Work</option>
-                <option>Other</option>
-              </select>
-            </div>
-
-            <label>Color&nbsp;</label>
-            <input class="mt-2" type="color" name="color" id="color" required/>
-          </div>
-      
-          <div class="location flex space-x-3  pt-3 pb-2">
-            <Image height="0" width="20" src="/images/pin.png" alt="pin icon" />
-            <input name="location" class="outline-none" placeholder="Location if applicable" />
-          </div>
-
-          <div class="description mt-4">
-            <div class="flex space-x-3 h-20">
-              <div class="h-7 w-7 relative">
+        <div class="location flex flex-col ml-2 w-fit">
+          <div class="description mt-4 border-l-2 border-t-2 border-r-2 rounded-tr-lg rounded-tl-lg px-3">
+            <div class="flex space-x-2 h-24 md:h-20 mt-1">
+              <div class="h-5 w-5 relative">
                 <Image fill src="/images/paragraph.png" alt="paragraph icon"/>
               </div>
-              <textarea name="description" class="resize-none outline-none" placeholder="Add Description" required/>
+              <span class="for-border-design h-6"></span>
+              <textarea name="description" class="font-light resize-none outline-none" placeholder="Add Description" required/>
             </div>
+          </div>
+          <div class="location-box flex space-x-3 border-2 rounded-bl-lg rounded-br-lg px-3 py-1">
+            <Image height="0" width="17" src="/images/pin.png" alt="pin icon"/>
+            <input name="location" class="for-border-design font-light outline-none text-sm pr-7 w-full pl-3 " placeholder="Location if applicable" />
           </div>
         </div>
 
-        <div class="flex flex-col">
-          <button type="submit" class="bg-violet-300 text-white pt-1 pb-1">
-            Create Task
-          </button>
-          <a class="text-violet-300 text-center mt-2" href="">
-            Cancel
-          </a>
+        <div class="task-inputs h-full">
+
+          <div class="days-and-color mt-6 md:mt-4">
+            <p class="font-meidum text-neutral-700 text-lg">What days is the task?</p>
+            <fieldset class="select-task flex mb-3" name="date" required multiple>
+              <div>
+                <input type="checkbox" name="thu" value="0"/>
+                <div class="group-label flex flex-col w-10 justify-center text-neutral-700 items-center">
+                  <label class="label-1 font-medium text-sm">Thu</label>
+                  <label class="label-2 font-light text-sm pt-2">22</label>
+                </div>
+              </div>
+              <div>
+               <input type="checkbox" name="fri" value="1" />
+               <div class="group-label flex flex-col w-10 justify-center text-neutral-700 items-center">
+                  <label class="label-1 font-medium text-sm">Fri</label>
+                  <label class="label-2 font-light text-sm pt-2">23</label>
+                </div>
+              </div>
+              <div>
+               <input type="checkbox" name="sat" value="2" />
+               <div class="group-label flex flex-col w-10 justify-center text-neutral-700 items-center">
+                  <label class="label-1 font-medium text-sm">Sat</label>
+                  <label class="label-2 font-light text-sm pt-2">24</label>
+                </div>
+              </div>
+              <div>
+               <input type="checkbox" name="sun" value="3" />
+               <div class="group-label flex flex-col w-10 justify-center text-neutral-700 items-center">
+                  <label class="label-1 font-medium text-sm">Sun</label>
+                  <label class="label-2 font-light text-sm pt-2">25</label>
+                </div>
+              </div>
+              <div>
+               <input type="checkbox" name="mon" value="4" />
+               <div class="group-label flex flex-col w-10 justify-center text-neutral-700 items-center">
+                  <label class="label-1 font-medium text-sm">Mon</label>
+                  <label class="label-2 font-light text-sm pt-2">26</label>
+                </div>
+              </div>
+              <div>
+               <input type="checkbox" name="tue" value="5" />
+               <div class="group-label flex flex-col w-10 justify-center text-neutral-700 items-center">
+                  <label class="label-1 font-medium text-sm">Tue</label>
+                  <label class="label-2 font-light text-sm pt-2">27</label>
+                </div>
+              </div>
+              <div>
+               <input type="checkbox" name="wed" value="6" />
+               <div class="group-label flex flex-col w-10 justify-center text-neutral-700 items-center">
+                  <label class="label-1 font-medium text-sm">Wed</label>
+                  <label class="label-2 font-light text-sm pt-2">28</label>
+                </div>
+              </div>
+            </fieldset>
+
+            <p class="font-meidum text-neutral-700 text-lg">What time is the task?</p>
+            <div class="time mt-4 md:mt-2 mb-6">
+              <input type="time" id="time" name="time" class="rounded-lg border-2 w-96 h-12 text-lg pl-3 font-medium outline-0" required/>
+            </div>
+            
+            <p class="font-meidum text-neutral-700 text-lg">What is your preference for background color?</p>
+            <div class="flex mt-5 md:mt-0">
+              <div class="w-4/5 md:w-2/5 flex justify-between items-center ml-2 md:mt-2">
+                <input id="violet" type="radio" name="color" class="color"  defaultChecked/>
+                <input id="rose" type="radio" name="color" class="color" />
+                <input id="teal" type="radio" name="color" class="color"/>
+                <input id="amber" type="radio" name="color" class="color" />
+              </div>
+              <div class="flex flex-col items-end w-1/2">
+                <button type="submit" class="task-submit-btn rounded-2xl text-sm bg-indigo-500/90 md:text-md font-normal md:font-light w-fit py-2 px-4 md:px-12 text-white hover:font-semibold">
+                  Create Task
+                </button>
+                <a class="rounded-2xl text-sm md:text-md font-normal mt-2 md:font-light text-neutral-700 text-center py-2 w-fit bg-slate-200/50 px-8 md:px-16 hover:font-semibold" href="">
+                  Cancel
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </form>
     )

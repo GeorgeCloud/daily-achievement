@@ -16,12 +16,6 @@ body, html {
     width: 50%;
 }
 
-@media only screen and (max-width: 768px) {
-    #line-decoration {
-        width: 75%;
-    }
-  }
-
 #line-decoration:before, #line-decoration:after {
     content: "";
     flex: 1 1;
@@ -44,9 +38,328 @@ body, html {
     width: 257px;
 }
 
+input[type=time] {
+    border: none;
+    color: #2a2c2d;
+    font-size: 16px;
+    font-family: helvetica;
+    width: 210px;
+}
+  
+  /* Wrapper around the hour, minute, second, and am/pm fields as well as 
+  the up and down buttons and the 'X' button */
+input[type=time]::-webkit-datetime-edit-fields-wrapper {
+    display: flex;
+}
+
+  /* The space between the fields - between hour and minute, the minute and 
+  second, second and am/pm */
+input[type=time]::-webkit-datetime-edit-text {
+    padding: 19px 4px;
+}
+  
+  /* The naming convention for the hour, minute, second, and am/pm field is
+  `-webkit-datetime-edit-{field}-field` */
+  
+  /* Hour */
+input[type=time]::-webkit-datetime-edit-hour-field {
+    background-color: #f2f4f5;
+    border-radius: 15%;
+    padding: 19px 13px;
+}
+  
+  /* Minute */
+input[type=time]::-webkit-datetime-edit-minute-field {
+    background-color: #f2f4f5;
+    border-radius: 15%;
+    padding: 19px 13px;
+}
+  
+  /* AM/PM */
+input[type=time]::-webkit-datetime-edit-ampm-field {
+    background-color: rgb(170, 145, 245);
+    border-radius: 15%;
+    color: #fff;
+    padding: 19px 13px;
+}
+  
+/* 'X' button for resetting/clearing time */
+input[type=time]::-webkit-clear-button {
+    display: none;
+}
+  
+/* Up/Down arrows for incrementing/decrementing the value */
+input[type=time]::-webkit-inner-spin-button {
+    display: none;
+}
+
+/* Task type button */
+
+#task-type{
+  height: 50px;
+  border: none;
+  overflow: hidden;
+}
+
+#task-type::-moz-focus-inner {
+  border: 0;
+}
+
+#task-type:focus {
+  outline: none;
+  color: white;
+}
+
+option:checked {
+    background-size: 25px;
+    background-repeat: no-repeat;
+    box-shadow: 0 0 10px 100px rgb(170, 145, 245) inset;
+    color: #fff !important;
+    padding: 7px 0;
+}
+/* iphone XR for the task type*/
 @media only screen and (max-width: 768px) {
     #register-btn {
         width: 217px;
         padding: 10px 20px;
     }
+    #line-decoration {
+        width: 75%;
+    }
+    #task-type option {
+        width: 60px;
+        font-size: 0.7em;
+        padding: 14px 0;
+        text-align: end;
+        padding-right: 3px;
+        margin-right: 15px;
+        display: inline-block;
+        cursor: pointer;
+        border-radius: 5px;
+        color: rgb(4, 4, 4);
+        border-bottom: solid;
+        border-bottom-width: 1.3px;
+        border-color: rgb(184, 183, 183);
+        position: relative;
+        z-index: inherit;
+        padding-left: 15px;
+        padding-right: 4px;
+    }
+    #task-type option:hover {
+        background-color: white;
+        border-top: solid;
+        border-color: rgb(184, 183, 183);
+        padding: 6px -5px 6px 0px;
+        padding-left: 10px;
+        border-width: 1px;
+    }
+    .for-task-type {
+        background-size: 35px;
+        background-repeat: no-repeat;
+    }
+    .task-1 {
+        background-image: url('../public/images/work-icon.png');
+        background-position: -6px 12px;
+    }
+    .task-2 {
+        background-size: 24px;
+        background-image: url('../public/images/studying-icon.png');
+        background-position: 1px 22px;
+    }
+    .task-3 {
+        background-size: 22px;
+        background-image: url('../public/images/event-icon.png');
+        background-position: 1px 25px;
+    }
+    .task-4 {
+        background-size: 22px;
+        background-image: url('../public/images/gym-icon.png');
+        background-position: 2px 25px;
+    }
+    .task-5 {
+        background-size: 22px;
+        background-image: url('../public/images/box-icon.png');
+        background-position: 2px 25px;
+    }
+    .description, .location-box {
+        width: 365px;
+    }
+    .select-task {
+        list-style-type: none;
+        margin: 0 0 0 0px;
+        padding: 0;
+    }
+    .select-task div {
+        float: left;
+        margin: 9px 9px 28px 0;
+        width: 45px;
+        height: 70px;
+        position: relative;
+        padding-left: 10px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    #task-type option {
+        width: 100px;
+        font-size: 1em;
+        padding: 7.5px 0;
+        text-align: center;
+        margin-right: 20px;
+        display: inline-block;
+        cursor: pointer;
+        border-radius: 5px;
+        color: rgb(4, 4, 4);
+        border-bottom: solid;
+        border-bottom-width: 1px;
+        border-color: rgb(184, 183, 183);
+        position: relative;
+        z-index: inherit;
+        padding-left: 15px;
+    }
+    #task-type option:hover {
+        background-color: white;
+        border-top: solid;
+        border-color: rgb(184, 183, 183);
+        padding: 6px -5px 6px 0px;
+        padding-left: 10px;
+        border-width: 1px;
+    }
+    .for-task-type {
+        background-size: 35px;
+        background-repeat: no-repeat;
+    }
+    .task-1 {
+        background-image: url('../public/images/work-icon.png');
+        background-position: 0px 2px;
+    }
+    .task-2 {
+        background-size: 26px;
+        background-image: url('../public/images/studying-icon.png');
+        background-position: 2px 9px;
+    }
+    .task-3 {
+        background-size: 25px;
+        background-image: url('../public/images/event-icon.png');
+        background-position: 2px 12px;
+    }
+    .task-4 {
+        background-size: 30px;
+        background-image: url('../public/images/gym-icon.png');
+        background-position: 4px 12px;
+    }
+    .task-5 {
+        background-size: 25px;
+        background-image: url('../public/images/box-icon.png');
+        background-position: 4px 13px;
+    }
+    .select-task {
+        list-style-type: none;
+        margin: 0 0 0 10px;
+        padding: 0;
+    } 
+    .select-task div {
+        float: left;
+        margin: 5px 20px 23px 0;
+        width: 60px;
+        height: 70px;
+        position: relative;
+    }
+}
+
+.for-border-design {
+    border-left: solid;
+    border-left-width: 1px;
+    border-color: rgb(128, 126, 129);
+}
+
+/* Radio button */
+
+.select-task .label-1, .label-2 {
+    cursor: pointer;
+}
+
+.select-task input[type="checkbox"] {
+    opacity: 0.01;
+    z-index: 100;
+    position: absolute;
+    width: 45px;
+    height: 80px;
   }
+  
+.select-task input[type="checkbox"]:checked + .group-label {
+    background-color: rgb(236, 230, 249);
+    border-radius: 10%;
+    border: 2px #e8d3f4 solid;
+    animation: blink 1s;
+    animation-iteration-count: 1;
+}
+@keyframes blink { 50% { border-color:#fff ; }  }
+
+
+.select-task .group-label {
+    padding: 5px;
+    cursor: pointer;
+    z-index: 90;
+}
+
+.select-task .group-label:hover {
+    border: solid;
+    border-width: 1px;
+    border-radius: 10%;
+    border-color: rgb(128, 126, 129);
+}
+
+.blink {
+    animation: blink-animation 1s steps(5, start) infinite;
+    -webkit-animation: blink-animation 1s steps(5, start) infinite;
+  }
+  @keyframes blink-animation {
+    to {
+      visibility: hidden;
+    }
+  }
+  @-webkit-keyframes blink-animation {
+    to {
+      visibility: hidden;
+    }
+}
+
+.color{
+    border:2px solid white;
+    appearance:none;
+    border-radius:50%;
+    width:50px;
+    height:50px;
+    background-color:#fff;
+    transition:all ease-in 0.2s;
+    background-color:#EDE9FE;
+    border-color: white;
+  }
+
+#violet {
+    background-color:#EDE9FE;
+}
+
+#rose {
+    background-color: #FFF1F2;
+}
+
+#teal {
+    background-color: #CCFBF1;
+}
+
+#amber {
+    background-color: #FEF3C7;
+}
+
+.color:checked{
+    border-color: rgb(221, 219, 219);
+    animation: blink 1s;
+    animation-iteration-count: 1;
+}
+
+.location {
+    width: 52.2vw;
+}
+
