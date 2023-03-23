@@ -6,11 +6,8 @@ export default function TaskForm(){
 
   const handleTaskForm = async (e) => {
     e.preventDefault()
-
     const dateNow = new Date();
-
-    const datesFieldset = document.getElementById('dates');
-    const dateInputs = datesFieldset.getElementsByTagName("input");
+    const dateInputs = document.getElementsByClassName('date');
 
     const taskStamps = Array.from(dateInputs).reduce((datesArr, dateInput) => {
       if (dateInput.checked){
@@ -28,7 +25,7 @@ export default function TaskForm(){
     const data = {
       title       : e.target.title.value,
       time        : e.target.time.value,
-      dates       : "",
+      dates       : taskStamps,
       color       : e.target.color.value,
       location    : e.target.location.value,
       description : e.target.description.value,

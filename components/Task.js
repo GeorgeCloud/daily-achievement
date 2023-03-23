@@ -1,15 +1,15 @@
 import Image from 'next/image'
 
-export default function Task({ task }){
+export default function Task({ title, timestamp }){
     return (
       <div class="border-l-4 border-indigo-400 bg-violet-100 px-5 py-5 mb-3 rounded-l-lg flex relative">
           <div>
             <h2 class="font-bold text-lg text-indigo-800">
-              { task.title }
+              { title }
             </h2>
 
             <p class="text-sm text-slate-400">
-              { task.time }
+              { timestamp }
             </p>
           </div>
 

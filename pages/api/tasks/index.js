@@ -9,16 +9,12 @@ export default async function handler(req, res) {
     } else if (req.method == 'POST') {
         const userId = 1; // Grab from session
 
-        console.log(req.body.dates)
-
-        const taskDate = parse(req.body.time, 'HH:mm', new Date())
-
         const newTask = await prisma.Task.create({
             data: {
                 title    : req.body.title,
                 userId   : userId,
-                time     : taskDate,
-                // dates    : ,
+                time     : parse(req.body.time, 'HH:mm', new Date()),
+                dates    : req.body.dates,
                 color    : req.body.color,
                 desc     : req.body.description,
                 location : req.body.location

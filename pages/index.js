@@ -1,10 +1,12 @@
 import Head from 'next/head'
 import Navbar from 'components/Navbar'
-import NoTask from 'components/NoTask'
-import Task from 'components/Task'
+import DailySchedule from 'components/DailySchedule'
 import ProfileIcon from 'components/ProfileIcon'
+import { parse } from 'date-fns'
 
  export default function index({ tasks }) {
+  const numOfDays = [...Array(7).keys()]
+
   return (
     <>
       <Head>
@@ -21,18 +23,15 @@ import ProfileIcon from 'components/ProfileIcon'
             <ProfileIcon />
           </div>
           <div class="h-3/4 overflow-auto">
-            {/* Add tasks according to through corresponding dates For loop 6 days from today and check if task  */}
-
-            {tasks.map(task => {
+            {numOfDays.map((idx, day) => {
               return (
-                <div key={task.id}>
-                  <p class="font-bold text-sm text-slate-400 mb-3">Today, March 16</p>
-                  <Task task={task} key={task.id} />
-                </div>
+                <DailySchedule
+                  tasks={tasks}
+                  idx={idx}
+                  key={idx}
+                />
               )
             })}
-
-            {/* <NoTask /> */}
           </div>
 
           <Navbar />
@@ -43,13 +42,9 @@ import ProfileIcon from 'components/ProfileIcon'
 }
 
 export async function getServerSideProps(context){
-  console.log('tasks:')
-  // res.setHeader(
-  //   'Cache-Control',
-  //   'public, s-maxage=10, stale-while-revalidate=59'
-  // )
-
   const taskRes = await fetch('http://localhost:3000/api/users/1/tasks');
+  // + new URLSearchParams({ date: 'value' })
+
   const tasks = await taskRes.json()
 
   return { props: { tasks } }
