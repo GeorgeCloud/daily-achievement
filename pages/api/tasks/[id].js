@@ -4,17 +4,17 @@ export default async function handler(req, res) {
     const taskId = parseInt(req.query.id)
 
     if (req.method == 'GET'){
-        const task = await prisma.task.findUnique({
+        const task = await prisma.Task.findUnique({
             where: {id: taskId}
         })
 
         res.status(200).json(task)
     } else if (req.method == 'PUT'){
-        const task = await prisma.task.findUnique({
+        const task = await prisma.Task.findUnique({
             where: {id: taskId}
         })
         console.log('fetched task', taskId)
-        const updatedTask = await prisma.task.update({
+        const updatedTask = await prisma.Task.update({
             where: { id: taskId },
             data: {
                 name : req.body.name  || task.name,
@@ -25,7 +25,7 @@ export default async function handler(req, res) {
         res.status(200).json(updatedTask)
     } else if (req.method == 'DELETE') {
         try {
-            const deletedtask = await prisma.task.delete({
+            const deletedtask = await prisma.Task.delete({
                 where: {id: taskId}
             })
 

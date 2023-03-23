@@ -4,16 +4,34 @@ import { useRouter } from 'next/router'
 export default function TaskForm(){
   const router = useRouter()
 
-  const handleSubmit = async (e) => {
+  const handleTaskForm = async (e) => {
     e.preventDefault()
 
+    const dateNow = new Date();
+
+    const datesFieldset = document.getElementById('dates');
+    const dateInputs = datesFieldset.getElementsByTagName("input");
+
+    const taskStamps = Array.from(dateInputs).reduce((datesArr, dateInput) => {
+      if (dateInput.checked){
+        const daysAway = parseInt(dateInput.value)
+        const taskDate = new Date()
+
+        // Create date based on how many days away from today
+        taskDate.setDate(dateNow.getDate() + daysAway)
+
+        datesArr.push(taskDate)
+      }
+      return datesArr
+    }, [])
+
     const data = {
-      title      : e.target.title.value,
-      time       : e.target.time.value,
-      date       : e.target.date.value,
-      color      : e.target.color.value,
-      location   : e.target.location.value,
-      description: e.target.description.value,
+      title       : e.target.title.value,
+      time        : e.target.time.value,
+      dates       : "",
+      color       : e.target.color.value,
+      location    : e.target.location.value,
+      description : e.target.description.value,
     }
 
     const options = {
@@ -31,7 +49,7 @@ export default function TaskForm(){
   }
 
     return (
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleTaskForm}>
         <div class="task-title mt-2 mb-6">
           <input
             type="text"
@@ -47,27 +65,29 @@ export default function TaskForm(){
           </div>
 
           <div class="days-and-color mb-2">
-            <fieldset class="mt-2" name="date" required>
-              <input type="radio" name="date" value="monday" />
-              &nbsp;Mon
+            <fieldset id="dates" class="mt-2" required>
 
-              &nbsp;<input type="radio" name="date" value="tuesday" />
-              &nbsp;Tue
 
-              &nbsp;<input type="radio" name="date" value="wednesday" />
-              &nbsp;Wed
+              <input type="radio" value="0" />
+              <label> Thr </label>
 
-              &nbsp;<input type="radio" name="date" value="thursday" />
-              &nbsp;Thr
+              <input type="radio" value="1" />
+              <label> Fri </label>
 
-              &nbsp;<input type="radio" name="date" value="friday"/>
-              &nbsp;Fri
+              <input type="radio" value="2" />
+              <label> Sat </label>
 
-              &nbsp;<input type="radio" name="date" value="saturday" />
-              &nbsp;Sat
+              <input type="radio" value="3"/>
+              <label> Sun </label>
 
-              &nbsp;<input type="radio" name="date" value="sunday" />
-              &nbsp;Sun
+              <input type="radio" value="4" />
+              <label> Mon </label>
+
+              <input type="radio" value="5" />
+              <label> Tue </label>
+
+              <input type="radio" value="6" />
+              <label> Wed </label>
             </fieldset>
 
             <div class="mt-2">

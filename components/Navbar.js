@@ -35,7 +35,7 @@ export default function Navbar(){
           </div>
         </div>
         <div class="border-t-2 border-t-sky-700/30 shadow-slate-100 w-screen flex items-center justify-center">
-          <Link href="/">
+          <Link href="/signin">
             <Image
               src="/images/log-out.png"
               class="opacity-70 ml-7 md:ml-0 md:mr-10"

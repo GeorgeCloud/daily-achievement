@@ -4,7 +4,7 @@ import NoTask from 'components/NoTask'
 import Task from 'components/Task'
 import ProfileIcon from 'components/ProfileIcon'
 
-export default function index() {
+ export default function index({ tasks }) {
   return (
     <>
       <Head>
@@ -21,7 +21,17 @@ export default function index() {
             <ProfileIcon />
           </div>
           <div class="h-3/4 overflow-auto">
-            <Task></Task>
+            {/* Add tasks according to through corresponding dates For loop 6 days from today and check if task  */}
+
+            {tasks.map(task => {
+              return (
+                <div key={task.id}>
+                  <p class="font-bold text-sm text-slate-400 mb-3">Today, March 16</p>
+                  <Task task={task} key={task.id} />
+                </div>
+              )
+            })}
+
             {/* <NoTask /> */}
           </div>
 
@@ -30,4 +40,17 @@ export default function index() {
       </main>
     </>
   )
+}
+
+export async function getServerSideProps(context){
+  console.log('tasks:')
+  // res.setHeader(
+  //   'Cache-Control',
+  //   'public, s-maxage=10, stale-while-revalidate=59'
+  // )
+
+  const taskRes = await fetch('http://localhost:3000/api/users/1/tasks');
+  const tasks = await taskRes.json()
+
+  return { props: { tasks } }
 }
