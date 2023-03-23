@@ -47,6 +47,7 @@ export default function TaskForm(){
 
     return (
       <form onSubmit={handleTaskForm}>
+        {/* Title */}
         <p class="font-meidum text-neutral-700 text-lg">What&apos;s your title?</p>
         <div class="task-title mt-2 mb-6">
           <input
@@ -57,6 +58,7 @@ export default function TaskForm(){
           />
         </div>
 
+        {/* Type of task */}
         <div class="mt-2">
           <p class="font-meidum text-neutral-700 text-lg">What is your task type?</p>
           <select name="type" id="task-type" class="ml-2 mt-2 md:mt-4" multiple required>
@@ -68,6 +70,7 @@ export default function TaskForm(){
           </select>
         </div>
 
+        {/* Description & Location */}
         <div class="location flex flex-col ml-2 w-fit">
           <div class="description mt-4 border-l-2 border-t-2 border-r-2 rounded-tr-lg rounded-tl-lg px-3">
             <div class="flex space-x-2 h-24 md:h-20 mt-1">
@@ -84,8 +87,8 @@ export default function TaskForm(){
           </div>
         </div>
 
+        {/* Day selection: Select days for task ( Mon-Sun, multi-choice) */}
         <div class="task-inputs h-full">
-
           <div class="days-and-color mt-6 md:mt-4">
             <p class="font-meidum text-neutral-700 text-lg">What days is the task?</p>
             <fieldset class="select-task flex mb-3" name="date" required multiple>
@@ -140,12 +143,18 @@ export default function TaskForm(){
               </div>
             </fieldset>
 
-            <p class="font-meidum text-neutral-700 text-lg">What time is the task?</p>
+            {/* Time */}
+            <p class="font-meidum text-neutral-700 text-lg">
+              What time is the task?
+            </p>
             <div class="time mt-4 md:mt-2 mb-6">
               <input type="time" id="time" name="time" class="rounded-lg border-2 w-96 h-12 text-lg pl-3 font-medium outline-0" required/>
             </div>
             
-            <p class="font-meidum text-neutral-700 text-lg">What is your preference for background color?</p>
+            {/* Background color for task */}
+            <p class="font-meidum text-neutral-700 text-lg">
+              What is your preference for background color?
+            </p>
             <div class="flex mt-5 md:mt-0">
               <div class="w-4/5 md:w-2/5 flex justify-between items-center ml-2 md:mt-2">
                 <input id="violet" type="radio" name="color" class="color"  defaultChecked/>
