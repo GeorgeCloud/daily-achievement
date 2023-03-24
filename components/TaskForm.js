@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { useRouter } from 'next/router'
+import getNextSevenDays from '../lib/time'
 
 export default function TaskForm(){
   const router = useRouter()
@@ -7,8 +8,9 @@ export default function TaskForm(){
   const handleTaskForm = async (e) => {
     e.preventDefault()
     const dateNow = new Date();
-    const dateInputs = document.getElementsByClassName('date');
+    const dateInputs = document.getElementsByClassName('day');
 
+    debugger
     const taskStamps = Array.from(dateInputs).reduce((datesArr, dateInput) => {
       if (dateInput.checked){
         const daysAway = parseInt(dateInput.value)
@@ -91,56 +93,18 @@ export default function TaskForm(){
         <div class="task-inputs h-full">
           <div class="days-and-color mt-6 md:mt-4">
             <p class="font-meidum text-neutral-700 text-lg">What days is the task?</p>
-            <fieldset class="select-task flex mb-3" name="date" required multiple>
-              <div>
-                <input type="checkbox" name="thu" value="0"/>
-                <div class="group-label flex flex-col w-10 justify-center text-neutral-700 items-center">
-                  <label class="label-1 font-medium text-sm">Thu</label>
-                  <label class="label-2 font-light text-sm pt-2">22</label>
-                </div>
-              </div>
-              <div>
-               <input type="checkbox" name="fri" value="1" />
-               <div class="group-label flex flex-col w-10 justify-center text-neutral-700 items-center">
-                  <label class="label-1 font-medium text-sm">Fri</label>
-                  <label class="label-2 font-light text-sm pt-2">23</label>
-                </div>
-              </div>
-              <div>
-               <input type="checkbox" name="sat" value="2" />
-               <div class="group-label flex flex-col w-10 justify-center text-neutral-700 items-center">
-                  <label class="label-1 font-medium text-sm">Sat</label>
-                  <label class="label-2 font-light text-sm pt-2">24</label>
-                </div>
-              </div>
-              <div>
-               <input type="checkbox" name="sun" value="3" />
-               <div class="group-label flex flex-col w-10 justify-center text-neutral-700 items-center">
-                  <label class="label-1 font-medium text-sm">Sun</label>
-                  <label class="label-2 font-light text-sm pt-2">25</label>
-                </div>
-              </div>
-              <div>
-               <input type="checkbox" name="mon" value="4" />
-               <div class="group-label flex flex-col w-10 justify-center text-neutral-700 items-center">
-                  <label class="label-1 font-medium text-sm">Mon</label>
-                  <label class="label-2 font-light text-sm pt-2">26</label>
-                </div>
-              </div>
-              <div>
-               <input type="checkbox" name="tue" value="5" />
-               <div class="group-label flex flex-col w-10 justify-center text-neutral-700 items-center">
-                  <label class="label-1 font-medium text-sm">Tue</label>
-                  <label class="label-2 font-light text-sm pt-2">27</label>
-                </div>
-              </div>
-              <div>
-               <input type="checkbox" name="wed" value="6" />
-               <div class="group-label flex flex-col w-10 justify-center text-neutral-700 items-center">
-                  <label class="label-1 font-medium text-sm">Wed</label>
-                  <label class="label-2 font-light text-sm pt-2">28</label>
-                </div>
-              </div>
+            <fieldset class="select-task flex mb-3" name="date" required>
+              {Object.values(getNextSevenDays()).map((day, idx) => {
+                return (
+                  <div key={day.dayOfWeek}>
+                    <input type="checkbox" class="day" value={idx} />
+                    <div class="group-label flex flex-col w-10 justify-center text-neutral-700 items-center">
+                      <label class="label-1 font-medium text-sm">{day.dayOfWeek}</label>
+                      <label class="label-2 font-light text-sm pt-2">{day.dateOfMonth}</label>
+                    </div>
+                  </div>
+                )
+              })}
             </fieldset>
 
             {/* Time */}
