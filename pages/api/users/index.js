@@ -17,9 +17,7 @@ export default async function handler(req, res) {
 
             res.status(200).json(newUser);
         } catch (e){
-            if (e.meta.target.includes('phoneNumber')) {
-                res.status(422).json({message: 'Phone number taken.'});
-            }
+            res.status(422).json({message: 'Login failed.'});
         }
     }
 }

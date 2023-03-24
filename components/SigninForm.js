@@ -7,7 +7,6 @@ export default function SigninForm(){
   const handleSignInForm = async (e) => {
     e.preventDefault();
 
-    // debugger
     const data = {
       phoneNumber: e.target.phoneNumber.value,
       password   : e.target.password.value,
