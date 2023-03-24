@@ -74,17 +74,17 @@ export default function TaskForm(){
         {/* Description & Location */}
         <div class="location flex flex-col ml-2 w-fit">
           <div class="description mt-4 border-l-2 border-t-2 border-r-2 rounded-tr-lg rounded-tl-lg px-3">
-            <div class="flex space-x-2 h-24 md:h-20 mt-1">
-              <div class="h-5 w-5 relative">
+            <div class="flex space-x-2 h-24 md:h-20 mt-2">
+              <div class="h-5 w-5 md:w-11 relative">
                 <Image fill src="/images/paragraph.png" alt="paragraph icon"/>
               </div>
               <span class="for-border-design h-6"></span>
-              <textarea name="description" class="font-light resize-none outline-none" placeholder="Add Description" required/>
+              <textarea name="description" class="font-light resize-none outline-none md:w-screen" placeholder="Add Description" required/>
             </div>
           </div>
           <div class="location-box flex space-x-3 border-2 rounded-bl-lg rounded-br-lg px-3 py-1">
             <Image height="0" width="17" src="/images/pin.png" alt="pin icon"/>
-            <input name="location" class="for-border-design font-light outline-none text-sm pr-7 w-full pl-3 " placeholder="Location if applicable" />
+            <input name="location" class="for-border-design mt-1 font-light outline-none text-sm pr-7 w-full pl-3 " placeholder="Location if applicable" />
           </div>
         </div>
 
