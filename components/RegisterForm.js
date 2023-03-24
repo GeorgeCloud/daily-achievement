@@ -45,7 +45,7 @@ export default function RegisterForm(){
           1. Add your phone number here
         </p>
         <input
-          type="text"
+          type="tel"
           name="phoneNumber"
           placeholder="Phone number"
           class="px-5 md:px-10 rounded-2xl bg-slate-100/70 text-neutral-700 shadow-sm shadow-slate-300/90 py-2 md:py-5 hover:bg-slate-200/50"

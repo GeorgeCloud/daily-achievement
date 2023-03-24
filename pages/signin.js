@@ -2,8 +2,19 @@ import Head from 'next/head'
 import Image from 'next/image'
 import SigninForm from '@/components/SigninForm'
 import RegisterForm from '@/components/RegisterForm'
+import { useState } from 'react'
 
 export default function Login() {
+  let [currentForm, setCurrentForm] = useState('signup');
+
+  function getCurrentForm(){
+    if (currentForm == 'signup'){
+      return <RegisterForm />
+    } else {
+      return <SigninForm />
+    }
+  }
+
   return (
     <>
       <Head>
@@ -33,17 +44,40 @@ export default function Login() {
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et odio condimentum, consectetur enim vel.
               </p>
               <div class="rounded-2xl w-fit md:w-2/3 bg-slate-200/50 mt-20 md:mt-8 text-neutral-600 shadow-lg shadow-slate-300/90">
-                <button class="rounded-2xl text-base md:text-lg font-normal md:font-light py-3 md:py-5 w-fit px-7 md:px-5 md:w-1/2 hover:font-bold tracking-widest">
+                <button
+                  id="registerBtn"
+                  class="rounded-2xl text-base md:text-lg bg-white font-white md:font-light py-3 md:py-5 w-fit px-7 md:px-5 md:w-1/2 hover:font-bold tracking-widest"
+                  onClick={(e) => {
+                    document.getElementById('registerBtn').scrollIntoView({
+                      behavior: 'smooth'
+                    })
+                    e.target.classList.add('bg-white')
+                    document.getElementById('signInBtn').classList.remove('bg-white')
+                    setCurrentForm('signup')
+                  }}
+                >
                   Register
                 </button>
-                <button class="rounded-2xl text-base md:text-lg bg-white font-normal md:font-light h-full px-7 md:px-5 py-3 md:py-5 w-fit md:w-1/2 hover:font-bold tracking-wider">
+
+                <button
+                  id="signInBtn"
+                  class="rounded-2xl text-base md:text-lg font-normal md:font-light h-full px-7 md:px-5 py-3 md:py-5 w-fit md:w-1/2 hover:font-bold tracking-wider"
+                  onClick={(e) => {
+                    document.getElementById('signInBtn').scrollIntoView({ 
+                      behavior: 'smooth'
+                    });
+                    e.target.classList.add('bg-white')
+                    document.getElementById('registerBtn').classList.remove('bg-white')
+                    setCurrentForm('signin')
+                  }}
+                >
                   Sign In
                 </button>
+
               </div>
             </div>
 
-            {/* <SigninForm /> */}
-            <RegisterForm />
+            {getCurrentForm()}
           </div>
         </div>
       </main>

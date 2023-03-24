@@ -10,7 +10,6 @@ export default function TaskForm(){
     const dateNow = new Date();
     const dateInputs = document.getElementsByClassName('day');
 
-    debugger
     const taskStamps = Array.from(dateInputs).reduce((datesArr, dateInput) => {
       if (dateInput.checked){
         const daysAway = parseInt(dateInput.value)
@@ -95,6 +94,7 @@ export default function TaskForm(){
             <p class="font-meidum text-neutral-700 text-lg">What days is the task?</p>
             <fieldset class="select-task flex mb-3" name="date" required>
               {Object.values(getNextSevenDays()).map((day, idx) => {
+                debugger
                 return (
                   <div key={day.dayOfWeek}>
                     <input type="checkbox" class="day" value={idx} />
@@ -121,7 +121,7 @@ export default function TaskForm(){
             </p>
             <div class="flex mt-5 md:mt-0">
               <div class="w-4/5 md:w-2/5 flex justify-between items-center ml-2 md:mt-2">
-                <input id="violet" type="radio" name="color" class="color"  defaultChecked/>
+                <input id="violet" type="radio" name="color" class="color" defaultChecked />
                 <input id="rose" type="radio" name="color" class="color" />
                 <input id="teal" type="radio" name="color" class="color"/>
                 <input id="amber" type="radio" name="color" class="color" />

@@ -9,6 +9,8 @@ export default async function handler(req, res) {
     } else if (req.method == 'POST') {
         const userId = 1; // Grab from session
 
+        debugger
+
         const newTask = await prisma.Task.create({
             data: {
                 title    : req.body.title,

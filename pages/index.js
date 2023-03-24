@@ -2,7 +2,6 @@ import Head from 'next/head'
 import Navbar from 'components/Navbar'
 import DailySchedule from 'components/DailySchedule'
 import ProfileIcon from 'components/ProfileIcon'
-import { parse } from 'date-fns'
 
  export default function index({ tasks }) {
   const numOfDays = [...Array(7).keys()]

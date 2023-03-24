@@ -1,6 +1,18 @@
 import Image from 'next/image'
+import { useState, useEffect } from 'react'
 
 export default function Task({ title, timestamp }){
+    const [taskDate, setTaskDate] = useState();
+
+
+    useEffect(() => {
+      setTaskDate(
+        new Date(timestamp).toLocaleTimeString(
+          'en-US', {hour: '2-digit', minute:'2-digit', hour12: true}
+        )
+      )
+    }, [timestamp]);
+
     return (
       <div class="border-l-4 border-indigo-400 bg-violet-100 px-5 py-5 mb-3 rounded-l-lg flex relative">
           <div>
@@ -8,9 +20,9 @@ export default function Task({ title, timestamp }){
               { title }
             </h2>
 
-            <p class="text-sm text-slate-400">
-              { timestamp }
-            </p>
+            <div class="text-sm text-slate-400">
+              { taskDate }
+            </div>
           </div>
 
           <div>
