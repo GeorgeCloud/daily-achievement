@@ -13,7 +13,7 @@ export default async function handler(req, res) {
         const task = await prisma.Task.findUnique({
             where: {id: taskId}
         })
-        console.log('fetched task', taskId)
+
         const updatedTask = await prisma.Task.update({
             where: { id: taskId },
             data: {

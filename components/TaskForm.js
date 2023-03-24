@@ -94,7 +94,6 @@ export default function TaskForm(){
             <p class="font-meidum text-neutral-700 text-lg">What days is the task?</p>
             <fieldset class="select-task flex mb-3" name="date" required>
               {Object.values(getNextSevenDays()).map((day, idx) => {
-                debugger
                 return (
                   <div key={day.dayOfWeek}>
                     <input type="checkbox" class="day" value={idx} />

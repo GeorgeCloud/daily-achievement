@@ -4,13 +4,14 @@ import bcrypt from 'bcrypt';
 export default async function handler(req, res) {
     if (req.method == 'GET'){
         const allUsers = await prisma.user.findMany({});
+
         res.status(200).json(allUsers);
     } else if (req.method == 'POST') {
         try {
             const newUser = await prisma.user.create({
                 data: {
                     phoneNumber: req.body.phoneNumber,
-                    password: await bcrypt.hash('req.password', 10),
+                    password: await bcrypt.hash(req.body.password, 10),
                 }
             });
 

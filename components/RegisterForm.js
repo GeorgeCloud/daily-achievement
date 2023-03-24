@@ -9,7 +9,7 @@ export default function RegisterForm(){
 
     const data = {
       phoneNumber: e.target.phoneNumber.value,
-      passsword  : e.target.password.value,
+      password  : e.target.password.value,
     }
 
     const options = {
@@ -23,9 +23,11 @@ export default function RegisterForm(){
     const apiReponse = await fetch('/api/users', options)
     const user = await apiReponse.json();
 
-    if (user){
+    if (apiReponse.status == 200){
       // Implement sessions
       router.push('/')
+    } else {
+      router.push('/signin')
     }
   }
 

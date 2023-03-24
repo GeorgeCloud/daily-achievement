@@ -22,7 +22,7 @@ export default function DailySchedule({ tasks, idx }){
           if (weekDay === currentDay.getDate()){
             taskAdded = true
             return (
-              <Task title={task.title} timestamp={timestamp} key={timestamp} />
+              <Task task={task} timestamp={timestamp} key={timestamp} />
             )
           }
           })

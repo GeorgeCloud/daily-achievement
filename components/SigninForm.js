@@ -7,9 +7,10 @@ export default function SigninForm(){
   const handleSignInForm = async (e) => {
     e.preventDefault();
 
+    // debugger
     const data = {
       phoneNumber: e.target.phoneNumber.value,
-      passsword  : e.target.password.value,
+      password   : e.target.password.value,
     }
 
     const options = {
@@ -20,15 +21,14 @@ export default function SigninForm(){
       body: JSON.stringify(data)
     }
 
-    const apiAuthResponse = await fetch('api/auth/authenticate', options)
-    const loggedInStatus = await apiAuthResponse.json();
+    const authRes = await fetch('/api/auth/signin', options)
+    const loggedInStatus = await authRes.json();
 
-    debugger
-    if (loggedInStatus.message == 'successful'){
+    if (authRes.status == 200){
       // Implement sessions
       router.push('/')
     } else {
-      console.log('nope')
+      router.push('/signin')
     }
   }
 
