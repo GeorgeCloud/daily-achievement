@@ -1,13 +1,15 @@
 import Image from 'next/image'
+import { useState, useEffect } from 'react'
+import classNames from 'classnames';
 
 export default function Task({ task, timestamp }){
     const [taskDate, setTaskDate] = useState();
 
     const colors = {
-      'violet': ['bg-violet-100'  , 'border-indigo-400'],
-      'rose'  : ['bg-rose-50'     , 'border-rose-400'],
-      'teal'  : ['bg-teal-100/50' , 'border-l-teal-400'],
-      'amber' : ['bg-amber-100/50', 'border-l-amber-400'],
+      'violet': 'bg-violet-100 border-indigo-400',
+      'rose'  : 'bg-rose-50 border-rose-400',
+      'teal'  : 'bg-teal-100/50 border-l-teal-400',
+      'amber' : 'bg-amber-100/50 border-l-amber-400',
     }
 
     useEffect(() => {
@@ -19,13 +21,13 @@ export default function Task({ task, timestamp }){
     }, [timestamp]);
 
     return (
-      <div class="border-l-4 border-indigo-400 bg-violet-100 px-5 py-5 mb-4 rounded-l-lg flex relative">
+      <div className={classNames(`border-l-4 ${colors.violet} px-5 py-5 mb-4 rounded-l-lg flex relative`)}>
           <div>
             <h2 class="font-bold text-lg text-indigo-800">
               { task.title }
             </h2>
             <p class="text-sm text-slate-400">
-              { timestamp }
+              { taskDate }
             </p>
             <div class="flex items-center pt-4">
               <Image height="0" width="14" src="/images/pin.png" alt="pin icon"/>
