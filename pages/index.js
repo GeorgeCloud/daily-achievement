@@ -41,8 +41,7 @@ import ProfileIcon from 'components/ProfileIcon'
 }
 
 export async function getServerSideProps(context){
-  const taskRes = await fetch('http:/0.0.0.0:3000/api/users/1/tasks');
-  // + new URLSearchParams({ date: 'value' })
+  const taskRes = await fetch(`${process.env.HOST_URL}/api/users/1/tasks`);
 
   const tasks = await taskRes.json()
 
